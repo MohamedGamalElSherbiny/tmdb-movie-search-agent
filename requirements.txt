@@ -1,0 +1,9 @@
+streamlit>=1.38
+pandas>=2.2
+numpy>=1.26
+scikit-learn>=1.5
+rapidfuzz>=3.9
+sentence-transformers>=3.0
+google-genai>=0.1.0
+python-dotenv>=1.0
+pyarrow>=17.0
