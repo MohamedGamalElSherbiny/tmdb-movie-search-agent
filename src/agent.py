@@ -256,13 +256,13 @@ def exec_semantic_search(df: pd.DataFrame, semantic_index: SemanticIndex,
 
 def exec_movie_details(df: pd.DataFrame, fuzzy_index: FuzzyIndex, state: ConversationState, args: dict) -> dict:
     uid = None
-    if args.get("reference") in ("first", "last") and state.last_result_uids:
-        uid = state.last_result_uids[0] if args["reference"] == "first" else state.last_result_uids[-1]
-    elif args.get("title"):
+    if args.get("title"):
         r = fuzzy_index.find(args["title"])
         if r["status"] != "matched":
             return {"status": r["status"], "candidates": [c.title for c in r["candidates"]]}
         uid = r["match"].movie_uid
+    elif args.get("reference") in ("first", "last") and state.last_result_uids:
+        uid = state.last_result_uids[0] if args["reference"] == "first" else state.last_result_uids[-1]
 
     if uid is None:
         return {"error": "movie_details requires a resolvable title or reference"}
