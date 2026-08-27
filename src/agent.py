@@ -82,7 +82,8 @@ def build_tools() -> types.Tool:
                             "field": {"type": "STRING", "description": (
                                 "One of: vote_average, vote_count, runtime_clean, "
                                 "release_year, budget_clean, revenue_clean, popularity, "
-                                "genre_list, cast_list, director"
+                                "genre_list, cast_list, director, production_company_list, "
+                                "original_language, status, title"
                             )},
                             "op": {"type": "STRING", "enum": ["eq", "gt", "gte", "lt", "lte", "contains_any"]},
                             "value": {"type": "STRING"},
@@ -94,7 +95,7 @@ def build_tools() -> types.Tool:
                 "sort_desc": {"type": "BOOLEAN"},
                 "limit": {"type": "INTEGER", "description": "max records to return, ignored if aggregate is set"},
                 "aggregate": {"type": "STRING", "enum": ["count"], "description": "set to 'count' for 'how many' questions"},
-                "group_by": {"type": "STRING", "description": "e.g. genre_list, release_year -- for 'movies per genre' style questions"},
+                "group_by": {"type": "STRING", "description": "e.g. genre_list, release_year, production_company_list -- for 'movies per genre' or 'movies per production company' style questions"},
             },
         },
     )
