@@ -20,3 +20,4 @@ data/semantic_index/
 # os
 .DS_Store
 .vscode/
+.pytest_cache/
